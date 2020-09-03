@@ -1,0 +1,35 @@
+// libAntimony v2.9.4
+// Compartments and Species:
+species D, R, RD, N, RDN, M;
+
+// Reactions:
+_J0: D + R -> RD; k1*D*R;
+_J1: RD -> D + R; k2*RD;
+_J2: RD + N -> RDN; k3*RD*N;
+_J3: RDN -> RD + N; k4*RDN;
+_J4: RDN -> M + D + R; k5*RDN;
+_J5: M -> ; k6*M;
+
+// Species initializations:
+D = 1; // nM
+R = 100; // nM
+RD = 0;
+N = 500; // nM
+RDN = 0;
+M = 0;
+
+// Parameter initializations:
+k1 = 20; // nM^-1s^-1
+k2 = 10; // s^-1
+k3 = 20; // nM^-1s^-1
+k4 = 10; // s^-1
+k5 = 2e-2; // s^-1
+k6 = 1e-4; // s^-1
+
+// Other declarations:
+const k1;
+const k2;
+const k3;
+const k4;
+const k5;
+const k6;

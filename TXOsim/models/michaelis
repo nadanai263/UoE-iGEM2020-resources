@@ -1,0 +1,24 @@
+// libAntimony v2.9.4
+// Compartments and Species:
+species S, E, P;
+
+// Reactions:
+_J0: S + E -> ES; k1*S*E;
+_J1: ES -> S + E; k2*ES;
+_J2: ES -> P + E; k3*ES;
+
+// Species initializations:
+S = 10;
+E = 8;
+ES = 0;
+P = 0;
+
+// Parameter initializations:
+k1 = 100;
+k2 = 50;
+k3 = 1;
+
+// Other declarations:
+const k1;
+const k2;
+const k3;
