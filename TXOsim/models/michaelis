@@ -1,6 +1,6 @@
 // libAntimony v2.9.4
 // Compartments and Species:
-species S, E, P;
+species S, E, ES, P;
 
 // Reactions:
 _J0: S + E -> ES; k1*S*E;

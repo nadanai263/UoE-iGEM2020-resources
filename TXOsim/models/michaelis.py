@@ -6,8 +6,8 @@ def model(y, t, params):
 
 	S = y[0]
 	E = y[1]
-	P = y[2]
-	ES = y[3]
+	ES = y[2]
+	P = y[3]
 
 	k1 = params[0]
 	k2 = params[1]
@@ -16,6 +16,6 @@ def model(y, t, params):
 	derivs = [
 	- k1*S*E + k2*ES,
 	- k1*S*E + k2*ES + k3*ES,
-	+ k3*ES,
-	+ k1*S*E - k2*ES - k3*ES]
+	+ k1*S*E - k2*ES - k3*ES,
+	+ k3*ES]
 	return derivs
