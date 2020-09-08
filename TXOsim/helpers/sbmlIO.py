@@ -236,7 +236,7 @@ def parseODEs(r,odes):
     for deriv in derivs:
         derivdict[deriv.split(' = ')[0]] = deriv.split(' = ')[1]
 
- #   print(derivdict) # print to debug
+#    print(derivdict) # print to debug
  #   print(channeldict)
 
     speciesIds = []
@@ -267,7 +267,20 @@ def parseODEs(r,odes):
             elif (split[i]!='+') & (split[i]!='-'):
                 pass
 
-        derivatives.append(' '.join([signs[j]+' '+channeldict[channels[j]] for j in range(len(channels))]))
+        # and coefficients
+        coeffs = []
+        for i in range(len(channels)):
+            if channels[i][0].isnumeric()==True:
+                coeffs.append(channels[i][0:3])
+                channels[i]=channels[i][4:] # strip coeffs from channel list
+            else:
+                coeffs.append('1.0')
+
+        #print(channels) # print to debug
+        #print(signs) # print to debug
+        #print(coeffs) # print to debug
+
+        derivatives.append(' '.join([signs[j]+' '+coeffs[j]+' * '+channeldict[channels[j]] for j in range(len(channels))]))
 
     speciesValues = r.getFloatingSpeciesConcentrations()
     parameterIds = r.getGlobalParameterIds()
